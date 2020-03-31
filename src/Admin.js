@@ -13,10 +13,11 @@ class Admin extends React.Component{
     render(){
         return(
             <div>
-                <Link to='/admin/frontend'>Front End Developer</Link>
-                <Link to='/admin/node'>Node.js Developer</Link>
-                <Link to='/admin/mean'>MEAN Stack Developer</Link>
-                <Link to='/admin/fullstack'>Full Stack Developer</Link>
+                <h1>Admin Dashboard</h1>
+                <Link to='/admin/frontend' className='link'>Front End Developer</Link>
+                <Link to='/admin/node' className='link'>Node.js Developer</Link>
+                <Link to='/admin/mean' className='link'>MEAN Stack Developer</Link>
+                <Link to='/admin/fullstack' className='link'>Full Stack Developer</Link>
             </div>
         )
     }

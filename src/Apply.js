@@ -35,7 +35,7 @@ class Apply extends React.Component{
             skills: this.state.skills,
             jobTitle: this.state.apply
           }
-          axios.post(`https://cors-anywhere.herokuapp.com/http://dct-application-form.herokuapp.com/users/application-form`,formData)
+          axios.post(`http://dct-application-form.herokuapp.com/users/application-form`,formData)
             .then((response) => {
                 console.log(response.data)
             })
@@ -48,24 +48,28 @@ class Apply extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className='wrap'>
                 <h1>Apply for Job</h1>
+            <div className='form'>
                 <form onSubmit={this.handleSubmit}>
 
-                    <label htmlFor='name'>Full name  </label>
-                    <input type='text' id='name' name='name' value={this.state.name} onChange={this.handleChange}/>
+                    <label className='col-25' htmlFor='name'>Full name  </label>
+                    <input className='col-75' type='text' id='name' name='name' value={this.state.name} onChange={this.handleChange}/>
                     <br/><br/>
+                    
 
-                    <label htmlFor='email'>Email Address  </label> 
-                    <input type='email' id='email' name='email' value={this.state.email} onChange={this.handleChange} placeholder='example@gmail.com'/>
+                    <label className='col-25' htmlFor='email'>Email Address  </label> 
+                    <input className='col-75' type='email' id='email' name='email' value={this.state.email} onChange={this.handleChange} placeholder='example@gmail.com'/>
                     <br/><br/>
+                    
 
-                    <label htmlFor='phone'>Contact Number  </label>
-                    <input type='text' id='phone' name='phone' value={this.state.phone} onChange={this.handleChange}/>
+                    <label className='col-25' htmlFor='phone'>Contact Number  </label>
+                    <input className='col-75' type='text' id='phone' name='phone' value={this.state.phone} onChange={this.handleChange}/>
                     <br/><br/>
+                    
 
-                    <label htmlFor='apply'>Applying for job  </label>
-                    <select id='apply' onChange={this.handleApply} value={this.state.apply}>
+                    <label className='col-25' htmlFor='apply'>Applying for job  </label>
+                    <select className='col-75' id='apply' onChange={this.handleApply} value={this.state.apply}>
                         <option value='select'>---select---</option>
                         <option value='Front-End Developer'>Front-end Developer</option>
                         <option value='Node.js Developer'>Nodejs Developer</option>
@@ -73,16 +77,20 @@ class Apply extends React.Component{
                         <option value='FULL Stack Developer'>FULL-stack developer</option>
                     </select>
                     <br/><br/>
+                    
 
-                    <label htmlFor='exp'>Experience</label>
-                    <input type='text' id='exp' name='exp' value={this.state.exp} onChange={this.handleChange} placeholder='2 years 3 months' />
+                    <label className='col-25' htmlFor='exp'>Experience</label>
+                    <input className='col-75' type='text' id='exp' name='exp' value={this.state.exp} onChange={this.handleChange} placeholder='2 years 3 months' />
                     <br/><br/>
+                    
 
-                    <label htmlFor='skills'>Technical Skills</label>
-                    <input type='textbox' id='skills' name='skills' value={this.state.skills} onChange={this.handleChange} placeholder='technical-skills'/>
+                    <label className='col-25' htmlFor='skills'>Technical Skills</label>
+                    <textarea  className='col-75' id='skills' name='skills' value={this.state.skills} onChange={this.handleChange} placeholder='technical-skills'/>
                     <br/><br/>
-                    <input type='submit' value='send application' />
+                    
+                    <input className='submit' type='submit' value='send application' />
                 </form>
+            </div>
             </div>
         )
     }

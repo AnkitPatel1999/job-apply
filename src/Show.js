@@ -24,12 +24,14 @@ class Show extends React.Component{
               <div className="popup">
                 <h3>Job Profile</h3>
                 <hr />
-                <h4>Contact number {this.props.view.phone}</h4>
-                <h4>Email {this.props.view.email}</h4>
-                <h4>skills {this.props.view.skills}</h4>
-                <h4>Experience {this.props.view.phone}</h4>
-                <hr />
-                <button onClick={this.handleDisplay}>Close</button>
+                <div className='popup-text'>
+                  <h4>Contact number </h4><p>{this.props.view.phone}</p><br/>
+                  <h4>Email </h4><p>{this.props.view.email}</p><br/>
+                  <h4>skills </h4><p>{this.props.view.skills}</p><br/>
+                  <h4>Experience </h4><p>{this.props.view.experience}</p><br/>
+                  <hr />
+                  <button className='red close' onClick={this.handleDisplay}>Close</button>
+                </div>
               </div>
             </div>
           )
