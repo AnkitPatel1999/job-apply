@@ -1,25 +1,13 @@
 import React from 'react'
 
 class Show extends React.Component{
-    constructor(){
-        super()
-        this.state = {
-            display: true
-        }
+    handleClose = () =>{
+      this.props.handlePopUp()
     }
-    handleDisplay = () => {
-        this.setState({display:false})
-    }
-    componentDidUpdate(prevProps,prevState){
-        console.log('log',prevState,prevProps)
-        if(prevState.display==false && this.props.stat == true){
-            this.setState({display:true})
-        }
-    }
+
     render(){
-        console.log('status',this.state.display)
+        console.log('status',this.props)
         return (
-          this.state.display && (
             <div className="wrapper">
               <div className="popup">
                 <h3>Job Profile</h3>
@@ -30,11 +18,10 @@ class Show extends React.Component{
                   <h4>skills </h4><p>{this.props.view.skills}</p><br/>
                   <h4>Experience </h4><p>{this.props.view.experience}</p><br/>
                   <hr />
-                  <button className='red close' onClick={this.handleDisplay}>Close</button>
+                  <button className='red close' onClick={this.handleClose}>Close</button>
                 </div>
               </div>
             </div>
-          )
         )
     }
 }

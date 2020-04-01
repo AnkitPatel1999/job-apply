@@ -5,32 +5,23 @@ class Display extends React.Component{
     constructor(){
         super()
         this.state = {
-            status: false,
+            display: false,
             show:{}
         }
     }
-    
-    handleView = (show) => {
-        console.log(show)
-        this.setState({
-            show,
-            status:true
-        })
-    }
 
-    componentDidUpdate(prevProps,prevState){
-        console.log('listing',prevState,prevProps)
-        if(prevState.status==true && prevProps.display == false){
-            this.setState({
-                status:false
-            })
-        }
+    handlePopUp = (show) => {
+        //console.log(show)
+        this.setState({
+            display:!this.state.display,
+            show
+        })
     }
 
     render(){
         return(
             <div>
-                {this.state.status && <Show view={this.state.show} stat={true} />}
+                {this.state.display && <Show view={this.state.show} handlePopUp={this.handlePopUp} />}
                 <table>
                     <thead>
                         <tr>
@@ -51,7 +42,7 @@ class Display extends React.Component{
                                 <td>
                                   <button className='blue'
                                     onClick={() => {
-                                      this.handleView(list);
+                                      this.handlePopUp(list);
                                     }}
                                   >
                                     View Details

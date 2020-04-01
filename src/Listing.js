@@ -7,8 +7,7 @@ class Listing extends React.Component{
         super()
         this.state = {
             listed : [],
-            job:'',
-            display:false
+            job:''
         }
     }
 
@@ -80,7 +79,7 @@ class Listing extends React.Component{
             <div className='list'>
                 <h2>{this.state.job}</h2>
                 <p>List of candidates applied for {this.state.job}</p>
-                <Display candidates = {this.state.listed} handleUpdate = {this.handleUpdate} display = {this.state.display}/>
+                <Display candidates = {this.state.listed} handleUpdate = {this.handleUpdate} />
             </div>
         )
     }
