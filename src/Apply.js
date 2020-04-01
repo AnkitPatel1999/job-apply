@@ -7,7 +7,7 @@ class Apply extends React.Component{
         this.state = {
             name:'',
             email:'',
-            phone:'+91',
+            phone:'+91 ',
             exp:'',
             skills:'',
             apply:''

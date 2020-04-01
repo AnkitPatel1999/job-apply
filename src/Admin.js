@@ -1,7 +1,5 @@
 import React from 'react'
-import {Link,Route,BrowserRoute} from 'react-router-dom'
-import Apply from './Apply'
-import Post from './Listing'
+import {Link} from 'react-router-dom'
 
 class Admin extends React.Component{
     constructor(){
