@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 class Apply extends React.Component{
     constructor(){
@@ -10,7 +11,8 @@ class Apply extends React.Component{
             phone:'+91 ',
             exp:'',
             skills:'',
-            apply:''
+            apply:'',
+            status: false
         }
     }
 
@@ -23,7 +25,7 @@ class Apply extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault()
-        if (this.state.name == "" || this.state.email == "" || this.state.phone == '+91' || this.state.apply == ''){
+        if (this.state.name == "" || this.state.email == "" || this.state.phone == '+91 ' || this.state.apply == ''){
             alert('Your applied details are not valid')
         }
         else{
@@ -38,6 +40,7 @@ class Apply extends React.Component{
           axios.post(`http://dct-application-form.herokuapp.com/users/application-form`,formData)
             .then((response) => {
                 console.log(response.data)
+                this.setState({status: true})
             })
             .then((err) => {
                 console.log(err)
@@ -49,6 +52,7 @@ class Apply extends React.Component{
     render(){
         return(
             <div className='wrap'>
+                {this.state.status && <Redirect to='/admin'/>}
                 <h1>Apply for Job</h1>
             <div className='form'>
                 <form onSubmit={this.handleSubmit}>
