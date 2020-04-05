@@ -19,10 +19,7 @@ class Apply extends React.Component{
     handleChange = (e) => {
         this.setState({ [e.target.name] : e.target.value })
     }
-    handleApply = (e) => {
-        this.setState({apply: e.target.value})
-    }
-
+    
     handleSubmit = (e) => {
         e.preventDefault()
         if (this.state.name == "" || this.state.email == "" || this.state.phone == '+91 ' || this.state.apply == ''){
@@ -73,7 +70,7 @@ class Apply extends React.Component{
                     
 
                     <label className='col-25' htmlFor='apply'>Applying for job  </label>
-                    <select className='col-75' id='apply' onChange={this.handleApply} value={this.state.apply}>
+                    <select className='col-75' id='apply' name='apply' onChange={this.handleChange} value={this.state.apply}>
                         <option value='select'>---select---</option>
                         <option value='Front-End Developer'>Front-end Developer</option>
                         <option value='Node.js Developer'>Nodejs Developer</option>
