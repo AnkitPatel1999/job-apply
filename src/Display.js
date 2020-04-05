@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import Show from './Show'
 
 class Display extends React.Component{
@@ -38,7 +39,7 @@ class Display extends React.Component{
                               <tr key={i}>
                                 <td>{list.name}</td>
                                 <td>{list.skills}</td>
-                                <td>{list.createdAt.substr(0, 10)}</td>
+                                <td>{moment(list.createdAt).format('MM/DD/YYYY')}</td>
                                 <td>
                                   <button className='blue'
                                     onClick={() => {
